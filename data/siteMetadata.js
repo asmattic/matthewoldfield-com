@@ -6,7 +6,7 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://matthewoldfield.com',
-  siteRepo: 'https://github.com/asmattic/',
+  siteRepo: 'https://github.com/asmattic/matthewoldfield-com',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
@@ -15,7 +15,7 @@ const siteMetadata = {
   twitter: 'https://twitter.com/MattOldfield2',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com/matthew-oldfield',
+  linkedin: 'https://www.linkedin.com/in/matthew-oldfield/',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
