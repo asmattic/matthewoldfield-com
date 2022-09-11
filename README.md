@@ -1,10 +1,4 @@
-<!--hide-img-->
-![tailwind-nextjs-banner](/public/static/images/twitter-card.png)
-<!--end-hide-img-->
-
 # Matthew Oldfield's Portfolio and Blog
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/asmattic/matthewoldfield-com)
 
 ## Features
 
