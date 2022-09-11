@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
 import siteMetadata from '@/data/siteMetadata'
-import { CoreContent } from '@/lib/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
+import {CoreContent} from '@/lib/utils/contentlayer'
+import type {Blog} from 'contentlayer/generated'
 
 interface Props {
   frontMatter: CoreContent<Blog>
 }
 
-const Disqus = ({ frontMatter }: Props) => {
+const Disqus = ({frontMatter}: Props) => {
   const [enableLoadComments, setEnabledLoadComments] = useState(true)
 
   const COMMENTS_ID = 'disqus_thread'
@@ -24,7 +24,10 @@ const Disqus = ({ frontMatter }: Props) => {
     // @ts-ignore
     if (window.DISQUS === undefined) {
       const script = document.createElement('script')
-      script.src = 'https://' + siteMetadata.comment.disqusConfig.shortname + '.disqus.com/embed.js'
+      script.src =
+        'https://' +
+        siteMetadata.comment.disqusConfig.shortname +
+        '.disqus.com/embed.js'
       // @ts-ignore
       script.setAttribute('data-timestamp', +new Date())
       script.setAttribute('crossorigin', 'anonymous')
@@ -32,13 +35,15 @@ const Disqus = ({ frontMatter }: Props) => {
       document.body.appendChild(script)
     } else {
       // @ts-ignore
-      window.DISQUS.reset({ reload: true })
+      window.DISQUS.reset({reload: true})
     }
   }
 
   return (
     <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
-      {enableLoadComments && <button onClick={LoadComments}>Load Comments</button>}
+      {enableLoadComments && (
+        <button onClick={LoadComments}>Load Comments</button>
+      )}
       <div className="disqus-frame" id={COMMENTS_ID} />
     </div>
   )

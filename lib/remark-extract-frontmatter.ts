@@ -1,6 +1,6 @@
-import { Parent } from 'unist'
-import { VFile } from 'vfile'
-import { visit } from 'unist-util-visit'
+import {Parent} from 'unist'
+import {VFile} from 'vfile'
+import {visit} from 'unist-util-visit'
 import yaml from 'js-yaml'
 
 export default function extractFrontmatter() {

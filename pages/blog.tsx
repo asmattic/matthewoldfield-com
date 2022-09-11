@@ -1,9 +1,9 @@
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
-import { PageSEO } from '@/components/SEO'
-import { sortedBlogPost, allCoreContent } from '@/lib/utils/contentlayer'
-import { InferGetStaticPropsType } from 'next'
-import { allBlogs } from 'contentlayer/generated'
+import {PageSEO} from '@/components/SEO'
+import {sortedBlogPost, allCoreContent} from '@/lib/utils/contentlayer'
+import {InferGetStaticPropsType} from 'next'
+import {allBlogs} from 'contentlayer/generated'
 
 export const POSTS_PER_PAGE = 5
 
@@ -31,7 +31,10 @@ export default function Blog({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />
+      <PageSEO
+        title={`Blog - ${siteMetadata.author}`}
+        description={siteMetadata.description}
+      />
       <ListLayout
         posts={posts}
         initialDisplayPosts={initialDisplayPosts}

@@ -7,7 +7,9 @@ const root = process.cwd()
 
 const getAuthors = () => {
   const authorPath = path.join(root, 'data', 'authors')
-  const authorList = fs.readdirSync(authorPath).map((filename) => path.parse(filename).name)
+  const authorList = fs
+    .readdirSync(authorPath)
+    .map(filename => path.parse(filename).name)
   return authorList
 }
 
@@ -15,12 +17,12 @@ const getLayouts = () => {
   const layoutPath = path.join(root, 'layouts')
   const layoutList = fs
     .readdirSync(layoutPath)
-    .map((filename) => path.parse(filename).name)
-    .filter((file) => file.toLowerCase().includes('post'))
+    .map(filename => path.parse(filename).name)
+    .filter(file => file.toLowerCase().includes('post'))
   return layoutList
 }
 
-const genFrontMatter = (answers) => {
+const genFrontMatter = answers => {
   let d = new Date()
   const date = [
     d.getFullYear(),
@@ -30,7 +32,8 @@ const genFrontMatter = (answers) => {
   const tagArray = answers.tags.split(',')
   tagArray.forEach((tag, index) => (tagArray[index] = tag.trim()))
   const tags = "'" + tagArray.join("','") + "'"
-  const authorArray = answers.authors.length > 0 ? "'" + answers.authors.join("','") + "'" : ''
+  const authorArray =
+    answers.authors.length > 0 ? "'" + answers.authors.join("','") + "'" : ''
 
   let frontMatter = dedent`---
   title: ${answers.title ? answers.title : 'Untitled'}
@@ -93,7 +96,7 @@ inquirer
       choices: getLayouts,
     },
   ])
-  .then((answers) => {
+  .then(answers => {
     // Remove special characters and replace space with -
     const fileName = answers.title
       .toLowerCase()
@@ -101,11 +104,12 @@ inquirer
       .replace(/ /g, '-')
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)
-    if (!fs.existsSync('data/blog')) fs.mkdirSync('data/blog', { recursive: true })
+    if (!fs.existsSync('data/blog'))
+      fs.mkdirSync('data/blog', {recursive: true})
     const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${
       answers.extension ? answers.extension : 'md'
     }`
-    fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
+    fs.writeFile(filePath, frontMatter, {flag: 'wx'}, err => {
       if (err) {
         throw err
       } else {
@@ -113,7 +117,7 @@ inquirer
       }
     })
   })
-  .catch((error) => {
+  .catch(error => {
     if (error.isTtyError) {
       console.log("Prompt couldn't be rendered in the current environment")
     } else {

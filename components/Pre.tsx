@@ -1,10 +1,10 @@
-import { useState, useRef, ReactNode } from 'react'
+import {useState, useRef, ReactNode} from 'react'
 
 interface Props {
   children: ReactNode
 }
 
-const Pre = ({ children }: Props) => {
+const Pre = ({children}: Props) => {
   const textInput = useRef(null)
   const [hovered, setHovered] = useState(false)
   const [copied, setCopied] = useState(false)
@@ -25,7 +25,12 @@ const Pre = ({ children }: Props) => {
   }
 
   return (
-    <div ref={textInput} onMouseEnter={onEnter} onMouseLeave={onExit} className="relative">
+    <div
+      ref={textInput}
+      onMouseEnter={onEnter}
+      onMouseLeave={onExit}
+      className="relative"
+    >
       {hovered && (
         <button
           aria-label="Copy code"

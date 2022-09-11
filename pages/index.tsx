@@ -1,12 +1,12 @@
 import Link from '@/components/Link'
-import { PageSEO } from '@/components/SEO'
+import {PageSEO} from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import formatDate from '@/lib/utils/formatDate'
-import { sortedBlogPost, allCoreContent } from '@/lib/utils/contentlayer'
-import { InferGetStaticPropsType } from 'next'
+import {sortedBlogPost, allCoreContent} from '@/lib/utils/contentlayer'
+import {InferGetStaticPropsType} from 'next'
 import NewsletterForm from '@/components/NewsletterForm'
-import { allBlogs } from 'contentlayer/generated'
+import {allBlogs} from 'contentlayer/generated'
 
 const MAX_DISPLAY = 5
 
@@ -15,13 +15,18 @@ export const getStaticProps = async () => {
   const sortedPosts = sortedBlogPost(allBlogs)
   const posts = allCoreContent(sortedPosts)
 
-  return { props: { posts } }
+  return {props: {posts}}
 }
 
-export default function Home({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <PageSEO
+        title={siteMetadata.title}
+        description={siteMetadata.description}
+      />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
@@ -33,8 +38,8 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
-          {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags } = post
+          {posts.slice(0, MAX_DISPLAY).map(post => {
+            const {slug, date, title, summary, tags} = post
             return (
               <li key={slug} className="py-12">
                 <article>
@@ -57,7 +62,7 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
                             </Link>
                           </h2>
                           <div className="flex flex-wrap">
-                            {tags.map((tag) => (
+                            {tags.map(tag => (
                               <Tag key={tag} text={tag} />
                             ))}
                           </div>

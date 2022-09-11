@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {useState} from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
 
@@ -6,7 +6,7 @@ const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
 
   const onToggleNav = () => {
-    setNavShow((status) => {
+    setNavShow(status => {
       if (status) {
         document.body.style.overflow = 'auto'
       } else {
@@ -58,7 +58,7 @@ const MobileNav = () => {
           onClick={onToggleNav}
         ></button>
         <nav className="fixed mt-8 h-full">
-          {headerNavLinks.map((link) => (
+          {headerNavLinks.map(link => (
             <div key={link.title} className="px-12 py-4">
               <Link
                 href={link.href}

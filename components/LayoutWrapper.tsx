@@ -6,13 +6,13 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
-import { ReactNode } from 'react'
+import {ReactNode} from 'react'
 
 interface Props {
   children: ReactNode
 }
 
-const LayoutWrapper = ({ children }: Props) => {
+const LayoutWrapper = ({children}: Props) => {
   return (
     <SectionContainer>
       <div className="flex h-screen flex-col justify-between">
@@ -35,7 +35,7 @@ const LayoutWrapper = ({ children }: Props) => {
           </div>
           <div className="flex items-center text-base leading-5">
             <div className="hidden sm:block">
-              {headerNavLinks.map((link) => (
+              {headerNavLinks.map(link => (
                 <Link
                   key={link.title}
                   href={link.href}

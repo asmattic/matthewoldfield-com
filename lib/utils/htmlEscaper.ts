@@ -1,4 +1,4 @@
-const { replace } = ''
+const {replace} = ''
 
 // escape
 const ca = /[&<>'"]/g

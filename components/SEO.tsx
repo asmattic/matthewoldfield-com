@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import {useRouter} from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
-import { CoreContent } from '@/lib/utils/contentlayer'
-import type { Blog, Authors } from 'contentlayer/generated'
+import {CoreContent} from '@/lib/utils/contentlayer'
+import type {Blog, Authors} from 'contentlayer/generated'
 interface CommonSEOProps {
   title: string
   description: string
@@ -31,13 +31,18 @@ const CommonSEO = ({
       <title>{title}</title>
       <meta name="robots" content="follow, index" />
       <meta name="description" content={description} />
-      <meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
+      <meta
+        property="og:url"
+        content={`${siteMetadata.siteUrl}${router.asPath}`}
+      />
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={siteMetadata.title} />
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
       {Array.isArray(ogImage) ? (
-        ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
+        ogImage.map(({url}) => (
+          <meta property="og:image" content={url} key={url} />
+        ))
       ) : (
         <meta property="og:image" content={ogImage} key={ogImage} />
       )}
@@ -48,7 +53,11 @@ const CommonSEO = ({
       <meta name="twitter:image" content={twImage} />
       <link
         rel="canonical"
-        href={canonicalUrl ? canonicalUrl : `${siteMetadata.siteUrl}${router.asPath}`}
+        href={
+          canonicalUrl
+            ? canonicalUrl
+            : `${siteMetadata.siteUrl}${router.asPath}`
+        }
       />
     </Head>
   )
@@ -59,7 +68,7 @@ interface PageSEOProps {
   description: string
 }
 
-export const PageSEO = ({ title, description }: PageSEOProps) => {
+export const PageSEO = ({title, description}: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   return (
@@ -73,7 +82,7 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
   )
 }
 
-export const TagSEO = ({ title, description }: PageSEOProps) => {
+export const TagSEO = ({title, description}: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()
@@ -122,7 +131,7 @@ export const BlogSEO = ({
       ? [images]
       : images
 
-  const featuredImages = imagesArr.map((img) => {
+  const featuredImages = imagesArr.map(img => {
     return {
       '@type': 'ImageObject',
       url: `${siteMetadata.siteUrl}${img}`,
@@ -131,7 +140,7 @@ export const BlogSEO = ({
 
   let authorList
   if (authorDetails) {
-    authorList = authorDetails.map((author) => {
+    authorList = authorDetails.map(author => {
       return {
         '@type': 'Person',
         name: author.name,
@@ -180,8 +189,12 @@ export const BlogSEO = ({
         canonicalUrl={canonicalUrl}
       />
       <Head>
-        {date && <meta property="article:published_time" content={publishedAt} />}
-        {lastmod && <meta property="article:modified_time" content={modifiedAt} />}
+        {date && (
+          <meta property="article:published_time" content={publishedAt} />
+        )}
+        {lastmod && (
+          <meta property="article:modified_time" content={modifiedAt} />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
