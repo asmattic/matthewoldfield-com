@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: 'Matt Oldfield\'s Site',
+  title: "Matt Oldfield's Site",
   author: 'Matt Oldfield',
   headerTitle: 'Matthew Oldfield Portfolio',
   description: 'My blog and portfolio created with Next.js and Tailwind.css',
@@ -13,8 +13,8 @@ const siteMetadata = {
   email: 'matthewoldfieldweb@gmail.com',
   github: 'https://github.com/asmattic',
   twitter: 'https://twitter.com/MattOldfield2',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
+  // facebook: 'https://facebook.com',
+  // youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/matthew-oldfield/',
   locale: 'en-US',
   analytics: {
