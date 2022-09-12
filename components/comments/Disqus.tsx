@@ -24,10 +24,7 @@ const Disqus = ({frontMatter}: Props) => {
     // @ts-ignore
     if (window.DISQUS === undefined) {
       const script = document.createElement('script')
-      script.src =
-        'https://' +
-        siteMetadata.comment.disqusConfig.shortname +
-        '.disqus.com/embed.js'
+      script.src = 'https://' + siteMetadata.comment.disqusConfig.shortname + '.disqus.com/embed.js'
       // @ts-ignore
       script.setAttribute('data-timestamp', +new Date())
       script.setAttribute('crossorigin', 'anonymous')
@@ -41,9 +38,7 @@ const Disqus = ({frontMatter}: Props) => {
 
   return (
     <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
-      {enableLoadComments && (
-        <button onClick={LoadComments}>Load Comments</button>
-      )}
+      {enableLoadComments && <button onClick={LoadComments}>Load Comments</button>}
       <div className="disqus-frame" id={COMMENTS_ID} />
     </div>
   )

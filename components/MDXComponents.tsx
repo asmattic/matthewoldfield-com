@@ -39,12 +39,5 @@ export const MDXLayoutRenderer = ({layout, content, ...rest}: MDXLayout) => {
   const MDXLayout = useMDXComponent(content.body.code)
   const mainContent = coreContent(content)
 
-  return (
-    <MDXLayout
-      layout={layout}
-      content={mainContent}
-      components={MDXComponents}
-      {...rest}
-    />
-  )
+  return <MDXLayout layout={layout} content={mainContent} components={MDXComponents} {...rest} />
 }

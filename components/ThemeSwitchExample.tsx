@@ -29,8 +29,7 @@ export default function DarkModeSwitch() {
 
   if (
     localStorage.theme === 'light' ||
-    (!('theme' in localStorage) &&
-      window.matchMedia('(prefers-color-scheme: light)').matches)
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)
   ) {
     document.documentElement.classList.add('dark')
   } else {

@@ -13,12 +13,7 @@ interface Props {
   pagination?: ComponentProps<typeof Pagination>
 }
 
-export default function ListLayout({
-  posts,
-  title,
-  initialDisplayPosts = [],
-  pagination,
-}: Props) {
+export default function ListLayout({posts, title, initialDisplayPosts = [], pagination}: Props) {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter(post => {
     const searchContent = post.title + post.summary + post.tags.join(' ')
@@ -27,9 +22,7 @@ export default function ListLayout({
 
   // If initialDisplayPosts exist, display it if no searchValue is specified
   const displayPosts =
-    initialDisplayPosts.length > 0 && !searchValue
-      ? initialDisplayPosts
-      : filteredBlogPosts
+    initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
 
   return (
     <>
@@ -78,10 +71,7 @@ export default function ListLayout({
                   <div className="space-y-3 xl:col-span-3">
                     <div>
                       <h3 className="text-2xl font-bold leading-8 tracking-tight">
-                        <Link
-                          href={`/blog/${slug}`}
-                          className="text-gray-900 dark:text-gray-100"
-                        >
+                        <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
                           {title}
                         </Link>
                       </h3>
@@ -102,10 +92,7 @@ export default function ListLayout({
         </ul>
       </div>
       {pagination && pagination.totalPages > 1 && !searchValue && (
-        <Pagination
-          currentPage={pagination.currentPage}
-          totalPages={pagination.totalPages}
-        />
+        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
       )}
     </>
   )
