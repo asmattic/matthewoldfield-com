@@ -3,7 +3,7 @@ const projectsData = [
     title: 'Gasparilla Music Festival',
     description: `Gasparilla Music Festival`,
     imgSrc: '/static/images/gasparilla-music-festival-full-2016.jpg',
-    href: '/blog/gasparilla-music-festival',
+    href: '/blog/gasparilla-music-festival/gasparilla-music-festival-2021',
   },
   {
     title: 'React Analytics Dashboard',
