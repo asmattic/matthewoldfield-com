@@ -75,9 +75,7 @@
   "eslintIgnore": [
     "node_modules",
     "coverage",
-    "build",
-    "*.ignored/",
-    "*.ignored.*"
+    "build"
   ],
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
