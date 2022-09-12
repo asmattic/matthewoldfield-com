@@ -7,7 +7,6 @@ type ImageNode = Parent & {
   url: string
   alt: string
   name: string
-
   attributes: (Literal & {name: string})[]
 }
 
@@ -17,12 +16,9 @@ export default function remarkImgToJsx() {
       tree,
       // only visit p tags that contain an img element
       (node: Parent): node is Parent =>
-        node.type === 'paragraph' &&
-        node.children.some(n => n.type === 'image'),
+        node.type === 'paragraph' && node.children.some(n => n.type === 'image'),
       (node: Parent) => {
-        const imageNode = node.children.find(
-          n => n.type === 'image',
-        ) as ImageNode
+        const imageNode = node.children.find(n => n.type === 'image') as ImageNode
 
         // only local files
         if (fs.existsSync(`${process.cwd()}/public${imageNode.url}`)) {
