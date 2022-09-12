@@ -25,7 +25,6 @@ const LayoutWrapper = ({children}: Props) => {
                   <Image
                     alt={siteMetadata.siteLogo}
                     src={siteMetadata.siteLogo}
-                    // className="object-cover object-center md:h-36 lg:h-48"
                     width={75}
                     height={75}
                   />
