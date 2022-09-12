@@ -16,7 +16,10 @@ const projectsData = [
   },
   {
     title: 'React Analytics Dashboard (2018)',
-    description: `React Analytics Dashboard`,
+    description: `Invisioned, designed and developed a React web application that aggregated
+    related marketing analytics data from over 10 disparate sources of varying
+    structures to create a dashboard with unified insights and visualizations for
+    campaign optimization.`,
     imgSrc: '/static/images/dashboard-report-aug-2017.jpg',
     href: '/blog/react-analytics-dashboard-report',
   },
