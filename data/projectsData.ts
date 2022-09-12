@@ -6,8 +6,11 @@ const projectsData = [
     href: '/blog/gasparilla-music-festival/gasparilla-music-festival-2021',
   },
   {
-    title: '',
-    description: `React Analytics Dashboard (2021)`,
+    title: 'React Analytics Dashboard (2021)',
+    description: `A multi-purpose React, MongoDB, Node application for
+    regularly aggregating key analytics data from approximately 150 client
+    instances of the customer facing manufacturing and distribution sales CRM to
+    measure client adoption and usage.`,
     imgSrc: '/static/images/rf-dashboard-home.png',
     href: '/blog/react-analytics-dashboard',
   },
